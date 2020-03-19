@@ -4,10 +4,11 @@ class IssuePriorityQueue {
   issues: Issue[];
 
   constructor(issues: [Issue]) {
+    // put into a PQ here
     this.issues = issues;
   }
 
-  pop() {
+  pop(): Issue {
     return this.issues[0];
   }
 }

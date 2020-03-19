@@ -11,15 +11,24 @@ function Issues() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error.message}</p>;
 
-  const issues = data.repository.issues.edges.map((node: any) => {
+  const openIssuesCount = data.repository.issues.totalCount;
+
+  const issues: Issue[] = data.repository.issues.edges.map((node: any) => {
     const issue = new Issue(node.node);
     return issue;
   });
 
+  const issue = issues[count];
   return (
     <>
+      <h1>There are {openIssuesCount} open issues that could use your help!</h1>
       <button onClick={() => setCount(count + 1)}>Get Story</button>
-      <div>{issues[count].title}</div>
+      <br />
+      <a href={issue.url}>{issue.title}</a>
+      <p>{issue.body}</p>
+      {issue.labels.map((label: any, index: number) => (
+        <p key={index}>{label}</p>
+      ))}
     </>
   );
 }
@@ -29,11 +38,13 @@ export default Issues;
 const GET_ISSUES = gql`
   query {
     repository(owner: "diez", name: "diez") {
-      issues(last: 20, states: CLOSED) {
+      issues(last: 100, states: OPEN) {
+        totalCount
         edges {
           node {
             title
             url
+            body
             labels(first: 5) {
               edges {
                 node {
