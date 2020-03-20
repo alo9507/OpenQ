@@ -12,7 +12,16 @@ class IssuePriorityQueue {
   pop(): Issue | null {
     return this.issues[this.count] == undefined
       ? null
-      : this.issues[this.count];
+      : this.issues[this.count++];
+  }
+
+  toString(): string {
+    let result = "";
+    this.issues.map((issue: any) => {
+      result += `\n${issue.title}`;
+    });
+
+    return result;
   }
 }
 
