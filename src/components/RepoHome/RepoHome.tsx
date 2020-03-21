@@ -2,23 +2,25 @@ import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 
-import IssuePriorityQueue from "./models/IssuePriorityQueue";
-import Issue from "./models/Issue";
-import IssuePicker from "./components/IssuePicker";
+import IssuePriorityQueue from "../../models/IssuePriorityQueue";
+import Issue from "../../models/Issue";
+import IssuePicker from "../IssuePicker";
 
-import "./App.css";
+import "./RepoHome.css";
 
-function App() {
+function RepoHome(props: any) {
+  var ownerName = props.match.params.ownerName;
+  var repoName = props.match.params.repoName;
+
   const { data, loading, error } = useQuery(GET_OPEN_ISSUES, {
-    variables: { ownerName: "diez", repoName: "diez" }
+    variables: { ownerName: ownerName, repoName: repoName }
   });
 
-  // must move this a level higher
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error.message}</p>;
 
   const openIssuesCount = data.repository.issues.totalCount;
-  const repoName = data.repository.name;
+
   const issues: Issue[] = data.repository.issues.edges.map((node: any) => {
     const issue = new Issue(node.node);
     return issue;
@@ -27,7 +29,7 @@ function App() {
   const pq = new IssuePriorityQueue(issues);
 
   return (
-    <div className="App">
+    <div className="RepoHome">
       <IssuePicker
         pq={pq}
         openIssuesCount={openIssuesCount}
@@ -37,7 +39,7 @@ function App() {
   );
 }
 
-export default App;
+export default RepoHome;
 
 const GET_OPEN_ISSUES = gql`
   query($ownerName: String!, $repoName: String!) {
