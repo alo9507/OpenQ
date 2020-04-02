@@ -14,7 +14,7 @@ class Issue {
 
     this.labels = [];
     issue.labels.edges.map((node: any) => {
-      this.labels.push(node.label);
+      this.labels.push(node.node.name);
     });
   }
 }

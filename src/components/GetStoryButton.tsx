@@ -1,7 +1,12 @@
 import React from "react";
+import { Button } from "@material-ui/core";
 
 function GetStoryButton(props: any) {
-  return <button onClick={() => props.callback()}>Get Story</button>;
+  return (
+    <Button color="primary" onClick={() => props.callback()}>
+      Get Story
+    </Button>
+  );
 }
 
 export default GetStoryButton;

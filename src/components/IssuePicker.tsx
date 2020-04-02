@@ -33,7 +33,7 @@ function IssuePicker(props: any) {
           <h1>No More Stories</h1>
         )
       ) : (
-        <IssueDescription issue={currentIssue} />
+        <IssueDescription issue={currentIssue} style={{ maxWidth: "25%" }} />
       )}
     </>
   );

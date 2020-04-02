@@ -10,9 +10,9 @@ class IssuePriorityQueue {
   }
 
   pop(): Issue | null {
-    return this.issues[this.count] == undefined
-      ? null
-      : this.issues[this.count++];
+    let issue =
+      this.issues[this.count] == undefined ? null : this.issues[this.count++];
+    return issue;
   }
 
   toString(): string {
