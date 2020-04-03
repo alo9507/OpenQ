@@ -7,8 +7,6 @@ import IssuePriorityQueue from "../../models/Issues/IssuePriorityQueue";
 import Issue from "../../models/Issues/Issue";
 import IssuePicker from "../IssuePicker";
 
-import Grid from "@material-ui/core/Grid";
-
 import "./RepoHome.css";
 
 function RepoHome(props: any) {
