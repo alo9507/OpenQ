@@ -1,18 +1,31 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch localhost",
-      "type": "chrome",
+      "type": "node",
       "request": "launch",
-      "url": "http://localhost/mypage.html",
-      "webRoot": "${workspaceFolder}/wwwroot"
+      "name": "Jest All",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["--runInBand"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
     },
     {
-      "name": "Launch index.html",
-      "type": "chrome",
+      "type": "node",
       "request": "launch",
-      "file": "${workspaceFolder}/index.html"
+      "name": "Jest Current File",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": ["${fileBasenameNoExtension}", "--config", "jest.config.js"],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "disableOptimisticBPs": true,
+      "windows": {
+        "program": "${workspaceFolder}/node_modules/jest/bin/jest"
+      }
     }
   ]
 }

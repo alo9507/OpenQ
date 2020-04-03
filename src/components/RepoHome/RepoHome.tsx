@@ -10,7 +10,7 @@ import IssuePicker from "../IssuePicker";
 import "./RepoHome.css";
 
 function RepoHome(props: any) {
-  var ownerName = props.match.params.ownerName;
+  var repoOwner = props.match.params.repoOwner;
   var repoName = props.match.params.repoName;
 
   let { data, loading, error } = new MockQueryReturn();
@@ -20,7 +20,7 @@ function RepoHome(props: any) {
     : STUB_QUERY;
 
   const result = useQuery(query, {
-    variables: { ownerName: ownerName, repoName: repoName }
+    variables: { repoOwner: repoOwner, repoName: repoName }
   });
 
   if (process.env.REACT_APP_FETCH_LIVE_DATA) {
@@ -46,6 +46,7 @@ function RepoHome(props: any) {
       <IssuePicker
         pq={pq}
         openIssuesCount={openIssuesCount}
+        repoOwner={repoOwner}
         repoName={repoName}
       />
     </div>
@@ -61,8 +62,8 @@ const STUB_QUERY = gql`
 `;
 
 const GET_OPEN_ISSUES = gql`
-  query($ownerName: String!, $repoName: String!) {
-    repository(owner: $ownerName, name: $repoName) {
+  query($repoOwner: String!, $repoName: String!) {
+    repository(owner: $repoOwner, name: $repoName) {
       name
       issues(last: 100, states: OPEN) {
         totalCount

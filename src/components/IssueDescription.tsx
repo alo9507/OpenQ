@@ -10,7 +10,8 @@ import Button from "@material-ui/core/Button";
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
-    maxWidth: "25%"
+    maxWidth: "25%",
+    margin: "0 auto"
   },
   bullet: {
     display: "inline-block",

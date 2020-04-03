@@ -36,7 +36,7 @@ const client = new ApolloClient({
 const routing = (
   <Router>
     <ApolloProvider client={client}>
-      <Route path="/:ownerName/:repoName" component={RepoHome} />
+      <Route path="/:repoOwner/:repoName" component={RepoHome} />
       <Route exact path="/" component={Home} />
     </ApolloProvider>
   </Router>
