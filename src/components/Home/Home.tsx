@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import "./Home.css";
+import { Header, Footer } from "../Layouts";
+
+import Grid from "@material-ui/core/Grid";
 
 function Home(props: any) {
   const [input, setInput] = useState<any>({});
@@ -14,6 +17,7 @@ function Home(props: any) {
 
   return (
     <div className="Home">
+      <Header />
       <div>
         <label>Repo Owner:</label>
         <input
@@ -37,6 +41,7 @@ function Home(props: any) {
           See OpenQ for {input.repoOwner} {input.repoName}
         </Link>
       </h1>
+      <Footer />
     </div>
   );
 }

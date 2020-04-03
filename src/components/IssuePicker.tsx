@@ -5,7 +5,9 @@ import IssueDescription from "./IssueDescription";
 import GetStoryButton from "./GetStoryButton";
 
 // DataStructures
-import Issue from "../models/Issue";
+import Issue from "../models/Issues/Issue";
+
+import Grid from "@material-ui/core/Grid";
 
 function IssuePicker(props: any) {
   const { pq, openIssuesCount, repoName } = props;
@@ -14,15 +16,19 @@ function IssuePicker(props: any) {
   const [fresh, setFresh] = useState(true);
 
   return (
-    <>
-      <h1>
-        There{" "}
-        {openIssuesCount == 1
-          ? `is 1 open issue`
-          : `are ${openIssuesCount} open issues`}{" "}
-        that {repoName} could use your skills on!
-      </h1>
-      <GetStoryButton callback={() => getStoryPressed()} />
+    <Grid container>
+      <Grid item xl>
+        <h1>
+          There{" "}
+          {openIssuesCount == 1
+            ? `is 1 open issue`
+            : `are ${openIssuesCount} open issues`}{" "}
+          that {repoName} could use your skills on!
+        </h1>
+      </Grid>
+      <Grid item xl>
+        <GetStoryButton callback={() => getStoryPressed()} />
+      </Grid>
       <br />
 
       {/* If it hasn't been clicked yet then don't render the IssueDescription */}
@@ -35,7 +41,7 @@ function IssuePicker(props: any) {
       ) : (
         <IssueDescription issue={currentIssue} style={{ maxWidth: "25%" }} />
       )}
-    </>
+    </Grid>
   );
 
   function getStoryPressed() {

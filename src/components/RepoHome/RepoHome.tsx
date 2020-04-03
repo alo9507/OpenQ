@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import MockQueryReturn from "../../models/Mocks/MockQueryReturn";
 
-import IssuePriorityQueue from "../../models/IssuePriorityQueue";
-import Issue from "../../models/Issue";
+import IssuePriorityQueue from "../../models/Issues/IssuePriorityQueue";
+import Issue from "../../models/Issues/Issue";
 import IssuePicker from "../IssuePicker";
+
+import Grid from "@material-ui/core/Grid";
 
 import "./RepoHome.css";
 
@@ -12,9 +15,21 @@ function RepoHome(props: any) {
   var ownerName = props.match.params.ownerName;
   var repoName = props.match.params.repoName;
 
-  const { data, loading, error } = useQuery(GET_OPEN_ISSUES, {
+  let { data, loading, error } = new MockQueryReturn();
+
+  const query = process.env.REACT_APP_FETCH_LIVE_DATA
+    ? GET_OPEN_ISSUES
+    : STUB_QUERY;
+
+  const result = useQuery(query, {
     variables: { ownerName: ownerName, repoName: repoName }
   });
+
+  if (process.env.REACT_APP_FETCH_LIVE_DATA) {
+    data = result.data;
+    error = result.error;
+    loading = result.loading;
+  }
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>{error.message}</p>;
@@ -40,6 +55,12 @@ function RepoHome(props: any) {
 }
 
 export default RepoHome;
+
+const STUB_QUERY = gql`
+  query {
+    __schema
+  }
+`;
 
 const GET_OPEN_ISSUES = gql`
   query($ownerName: String!, $repoName: String!) {

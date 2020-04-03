@@ -13,8 +13,8 @@ class Issue {
     this.priorityScore = 0;
 
     this.labels = [];
-    issue.labels.edges.map((node: any) => {
-      this.labels.push(node.node.name);
+    issue.labels.edges.map((labelObject: any) => {
+      this.labels.push(labelObject.node.name);
     });
   }
 }

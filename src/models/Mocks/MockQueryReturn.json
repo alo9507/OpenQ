@@ -1,0 +1,105 @@
+{
+  "data": {
+    "repository": {
+      "name": "diez",
+      "issues": {
+        "totalCount": 31,
+        "edges": [
+          {
+            "node": {
+              "title": "[Question] Is is possible to export different assets depending on the target ?",
+              "url": "https://github.com/diez/diez/issues/100",
+              "body": "\r\nI see that exists that target module `https://diez.org/docs/latest/modules/targets.html#onlytarget`.\r\n\r\nBut, my question is regarding how, if possible, to use the targets on the `DesignLanguage.ts`.\r\n\r\nFor instance:\r\n```\r\nconst layoutValues = { \r\n  spacingSmall: 5,\r\n  spacingMedium: 25,\r\n  spacingLarge: 40,\r\n  contentMargin: new Margin({\r\n    top: 40,\r\n    left: 10,\r\n    right: 10,\r\n    bottom: 10\r\n  })\r\n};\r\n```\r\n\r\nI would like the android version to have more spacings, like\r\n\r\n```\r\nconst layoutValues = { \r\n  spacingSmall: 5,\r\n  spacingSmallAndroid: 5, // only visible for android target\r\n  spacingMedium: 25,\r\n  spacingLarge: 40,\r\n  contentMargin: new Margin({\r\n    top: 40,\r\n    left: 10,\r\n    right: 10,\r\n    bottom: 10\r\n  })\r\n};\r\n```\r\n\r\nIs there a way of doing this? Should we use the `@diez/target` module?",
+              "labels": {
+                "edges": []
+              }
+            }
+          },
+          {
+            "node": {
+              "title": "PDF support for iOS targets",
+              "url": "https://github.com/diez/diez/issues/101",
+              "body": "iOS supports pdf as a vector for assets, it would be nice to have it as an option instead of png.\r\n\r\n[More detail](https://www.hackingwithswift.com/example-code/xcode/how-to-use-vector-images-in-your-asset-catalog)\r\n[More detail | Apple keynote](https://developer.apple.com/videos/play/wwdc2018/227/)",
+              "labels": {
+                "edges": []
+              }
+            }
+          },
+          {
+            "node": {
+              "title": "feat: ESC key to clear search field in DocsGen",
+              "url": "https://github.com/diez/diez/issues/112",
+              "body": "A good place to start looking for this feature is the [SearchForm](https://github.com/diez/diez/blob/master/src/utils/docs-template-app/src/components/SearchForm.vue) component and its [test](https://github.com/diez/diez/blob/master/src/utils/docs-template-app/test/components/SearchForm.test.ts)",
+              "labels": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "enhancement"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "good first issue"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "title": "chore: browser support pass for DocsGen",
+              "url": "https://github.com/diez/diez/issues/113",
+              "body": "Ensure all features and styles work in evergreen browsers.",
+              "labels": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "Help desired"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "enhancement"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "good first issue"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "title": "bug(docsgen): 404 page 'take me home' button not working",
+              "url": "https://github.com/diez/diez/issues/114",
+              "body": "",
+              "labels": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "Help desired"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "bug"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "good first issue"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
