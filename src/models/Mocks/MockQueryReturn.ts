@@ -1,4 +1,4 @@
-import mockQueryReturn from "./MockQueryReturn.json";
+import { MockQueryReturnJson } from "..";
 
 class MockQueryReturn {
   data: any;
@@ -6,7 +6,7 @@ class MockQueryReturn {
   error: any;
 
   constructor() {
-    this.data = mockQueryReturn.data;
+    this.data = MockQueryReturnJson.data;
     this.loading = false;
     this.error = undefined;
   }

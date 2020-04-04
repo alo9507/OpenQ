@@ -1,6 +1,6 @@
 enum ProgrammingLanguages {
-  swift = "Swift",
-  javaScript = "JavaScript"
+  swift = "swift",
+  javaScript = "javascript",
 }
 
 export default ProgrammingLanguages;

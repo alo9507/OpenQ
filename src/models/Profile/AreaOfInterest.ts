@@ -1,8 +1,8 @@
 enum AreaOfInterest {
-  ui = "UI",
-  ux = "UX",
+  ui = "ui",
+  ux = "ux",
   backend = "backend",
-  frontend = "frontend"
+  frontend = "frontend",
 }
 
 export default AreaOfInterest;

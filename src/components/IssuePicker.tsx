@@ -5,7 +5,7 @@ import IssueDescription from "./IssueDescription";
 import GetStoryButton from "./GetStoryButton";
 
 // DataStructures
-import Issue from "../models/Issues/Issue";
+import Issue from "../models/Issue/Issue";
 import AddBadge from "./AddBadge";
 
 function IssuePicker(props: any) {

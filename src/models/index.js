@@ -1,10 +1,15 @@
-import Issue from "./Issues/Issue";
-import Profile from "./User/Profile";
-import SkillLevel from "./User/SkillLevel";
-import ProgrammingLanguages from "./User/ProgrammingLanguages";
-import LabelCategory from "./User/LabelCategory";
-import AreaOfInterest from "./User/AreaOfInterest";
-import Heap from "./Heap";
+import { Issue, IssueArguments } from "./Issue";
+
+import {
+  Profile,
+  SkillLevel,
+  ProgrammingLanguages,
+  LabelCategory,
+  AreaOfInterest,
+} from "./Profile";
+
+import { Heap, IssuePriorityQueue } from "./DataStructures";
+import { MockObjects, MockQueryReturnJson, MockQueryReturn } from "./Mocks";
 
 export {
   Issue,
@@ -13,5 +18,10 @@ export {
   ProgrammingLanguages,
   Heap,
   LabelCategory,
-  AreaOfInterest
+  AreaOfInterest,
+  MockObjects,
+  IssuePriorityQueue,
+  IssueArguments,
+  MockQueryReturn,
+  MockQueryReturnJson,
 };

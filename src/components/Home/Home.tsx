@@ -12,7 +12,7 @@ function Home(props: any) {
   const handleInputChange = (e: any) =>
     setInput({
       ...input,
-      [e.currentTarget.name]: e.currentTarget.value
+      [e.currentTarget.name]: e.currentTarget.value,
     });
 
   return (

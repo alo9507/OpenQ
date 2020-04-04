@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import MockQueryReturn from "../../models/Mocks/MockQueryReturn";
+import { MockQueryReturn } from "../../models/Mocks";
 
-import IssuePriorityQueue from "../../models/Issues/IssuePriorityQueue";
-import Issue from "../../models/Issues/Issue";
+import { Issue, IssuePriorityQueue } from "../../models";
 import IssuePicker from "../IssuePicker";
 
 import "./RepoHome.css";
@@ -20,7 +19,7 @@ function RepoHome(props: any) {
     : STUB_QUERY;
 
   const result = useQuery(query, {
-    variables: { repoOwner: repoOwner, repoName: repoName }
+    variables: { repoOwner: repoOwner, repoName: repoName },
   });
 
   if (process.env.REACT_APP_FETCH_LIVE_DATA) {
