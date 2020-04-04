@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Typography } from "@material-ui/core";
 
-import "./Landing.css";
 import { Header, Footer } from "../../Shared/Layouts";
-
-import Grid from "@material-ui/core/Grid";
+import "./Landing.css";
+import GetStartedButton from "../GetStartedButton/GetStartedButton";
 
 function Landing(props: any) {
   const [input, setInput] = useState<any>({});
@@ -15,32 +15,17 @@ function Landing(props: any) {
       [e.currentTarget.name]: e.currentTarget.value,
     });
 
+  function getStartedClicked() {
+    console.log("hi");
+  }
+
   return (
     <div className="Landing">
       <Header />
-      <div>
-        <label>Repo Owner:</label>
-        <input
-          autoComplete="off"
-          type="text"
-          name="repoOwner"
-          onChange={handleInputChange}
-        />
-      </div>
-      <div>
-        <label>Repo Name:</label>
-        <input
-          autoComplete="off"
-          type="text"
-          name="repoName"
-          onChange={handleInputChange}
-        />
-      </div>
-      <h1>
-        <Link to={`/${input.repoOwner}/${input.repoName}`}>
-          See OpenQ for {input.repoOwner} {input.repoName}
-        </Link>
-      </h1>
+      <Typography variant="h1">
+        Take your first step into open source
+      </Typography>
+      <GetStartedButton callback={getStartedClicked} />
       <Footer />
     </div>
   );
