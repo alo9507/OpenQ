@@ -7,7 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 
 // Assets
-import { Badge } from "../assets";
+import { Badge } from "../../assets";
 
 const useStyles = makeStyles({
   clipboard: {

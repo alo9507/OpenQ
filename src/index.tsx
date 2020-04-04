@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-import Home from "./components/Home/Home";
+import Landing from "./components/Landing/Landing";
 
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
@@ -12,9 +12,11 @@ import { setContext } from "apollo-link-context";
 import { Route, Link, BrowserRouter as Router } from "react-router-dom";
 import RepoHome from "./components/RepoHome/RepoHome";
 
+import ProfileBuilder from "./components/ProfileBuilder/ProfileBuilder";
+
 const cache = new InMemoryCache();
 const httpLink = new HttpLink({
-  uri: "https://api.github.com/graphql"
+  uri: "https://api.github.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -23,21 +25,26 @@ const authLink = setContext((_, { headers }) => {
   return {
     headers: {
       ...headers,
-      authorization: `Bearer ${token}`
-    }
+      authorization: `Bearer ${token}`,
+    },
   };
 });
 
 const client = new ApolloClient({
   cache,
-  link: authLink.concat(httpLink)
+  link: authLink.concat(httpLink),
 });
 
 const routing = (
   <Router>
     <ApolloProvider client={client}>
-      <Route path="/:repoOwner/:repoName" component={RepoHome} />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/:repoOwner/:repoName" component={RepoHome} />
+      <Route
+        exact
+        path="/:repoOwner/:repoName/quiz"
+        component={ProfileBuilder}
+      />
+      <Route exact path="/" component={Landing} />
     </ApolloProvider>
   </Router>
 );

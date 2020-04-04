@@ -4,7 +4,7 @@ import gql from "graphql-tag";
 import { MockQueryReturn } from "../../models/Mocks";
 
 import { Issue, IssuePriorityQueue } from "../../models";
-import IssuePicker from "../IssuePicker";
+import IssuePicker from "../IssuePicker/IssuePicker";
 
 import "./RepoHome.css";
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Badge() {
+export default function Badge() {
   return (
     <svg width="102.04499999999999" height="20">
       <linearGradient id="smooth" x2="0" y2="100%">
@@ -68,5 +68,3 @@ function Badge() {
     </svg>
   );
 }
-
-export default Badge;

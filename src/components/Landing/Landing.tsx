@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
-import "./Home.css";
+import "./Landing.css";
 import { Header, Footer } from "../Layouts";
 
 import Grid from "@material-ui/core/Grid";
 
-function Home(props: any) {
+function Landing(props: any) {
   const [input, setInput] = useState<any>({});
 
   const handleInputChange = (e: any) =>
@@ -16,7 +16,7 @@ function Home(props: any) {
     });
 
   return (
-    <div className="Home">
+    <div className="Landing">
       <Header />
       <div>
         <label>Repo Owner:</label>
@@ -46,4 +46,4 @@ function Home(props: any) {
   );
 }
 
-export default Home;
+export default Landing;
