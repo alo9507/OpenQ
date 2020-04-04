@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
-import { MockQueryReturn } from "../../models/Mocks";
+import { MockQueryReturn } from "../../../models/Mocks";
 
-import { Issue, IssuePriorityQueue } from "../../models";
+import { Issue, IssuePriorityQueue } from "../../../models";
 import IssuePicker from "../IssuePicker/IssuePicker";
 
-import "./RepoHome.css";
+import "./IssueViewer.css";
 
-function RepoHome(props: any) {
+function IssueViewer(props: any) {
   var repoOwner = props.match.params.repoOwner;
   var repoName = props.match.params.repoName;
 
@@ -41,7 +41,7 @@ function RepoHome(props: any) {
   const pq = new IssuePriorityQueue(issues);
 
   return (
-    <div className="RepoHome">
+    <div className="IssueViewer">
       <IssuePicker
         pq={pq}
         openIssuesCount={openIssuesCount}
@@ -52,7 +52,7 @@ function RepoHome(props: any) {
   );
 }
 
-export default RepoHome;
+export default IssueViewer;
 
 const STUB_QUERY = gql`
   query {

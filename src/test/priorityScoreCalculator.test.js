@@ -1,5 +1,5 @@
-import { PriorityScoreCalculator } from "../services";
 import { Issue, MockObjects } from "../models";
+import { PriorityScoreCalculator } from "../services";
 
 test("should return a higher score for issues with a matching langauge", () => {
   // beginner, swift, frontend

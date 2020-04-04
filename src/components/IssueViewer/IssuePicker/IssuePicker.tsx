@@ -5,8 +5,8 @@ import IssueDescription from "./IssueDescription";
 import GetStoryButton from "./GetStoryButton";
 
 // DataStructures
-import Issue from "../../models/Issue/Issue";
-import AddBadge from "../RepoHome/AddBadge";
+import Issue from "../../../models/Issue/Issue";
+import AddBadge from "../AddBadge/AddBadge";
 
 function IssuePicker(props: any) {
   const { pq, openIssuesCount, repoOwner, repoName } = props;

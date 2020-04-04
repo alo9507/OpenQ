@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import Landing from "./components/Landing/Landing";
+import { Route, BrowserRouter as Router } from "react-router-dom";
 
 import { ApolloClient } from "apollo-client";
 import { InMemoryCache } from "apollo-cache-inmemory";
@@ -9,10 +8,11 @@ import { HttpLink } from "apollo-link-http";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { setContext } from "apollo-link-context";
 
-import { Route, Link, BrowserRouter as Router } from "react-router-dom";
-import RepoHome from "./components/RepoHome/RepoHome";
-
+import Landing from "./components/Landing/Landing/Landing";
+import IssueViewer from "./components/IssueViewer/IssueViewer/IssueViewer";
 import ProfileBuilder from "./components/ProfileBuilder/ProfileBuilder";
+
+import "./index.css";
 
 const cache = new InMemoryCache();
 const httpLink = new HttpLink({
@@ -38,13 +38,9 @@ const client = new ApolloClient({
 const routing = (
   <Router>
     <ApolloProvider client={client}>
-      <Route exact path="/:repoOwner/:repoName" component={RepoHome} />
-      <Route
-        exact
-        path="/:repoOwner/:repoName/quiz"
-        component={ProfileBuilder}
-      />
       <Route exact path="/" component={Landing} />
+      <Route exact path="/quiz" component={ProfileBuilder} />
+      <Route exact path="/:repoOwner/:repoName" component={IssueViewer} />
     </ApolloProvider>
   </Router>
 );

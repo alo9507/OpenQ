@@ -1,6 +1,5 @@
 import { PriorityScoreCalculator } from "../../services";
-import { MockObjects } from "..";
-import { IssueArguments } from "..";
+import { MockObjects, IssueArguments } from "..";
 import IssueInterface, { instanceOfIssue } from "./IssueInterface";
 
 class Issue implements IssueInterface {

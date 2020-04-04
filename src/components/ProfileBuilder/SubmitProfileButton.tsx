@@ -1,12 +1,12 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 
-function TakeTheQuizButton(props: any) {
+function SubmitProfileButton(props: any) {
   return (
     <Button color="primary" onClick={() => props.callback()}>
-      Take the Quiz!
+      That's Me!
     </Button>
   );
 }
 
-export default TakeTheQuizButton;
+export default SubmitProfileButton;
