@@ -1,10 +1,26 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 
 import SubmitProfileButton from "./SubmitProfileButton";
+import QuestionCard from "./QuestionCard";
 
 function ProfileBuilder(props: any) {
-  return <SubmitProfileButton />;
+  function submitProfilePressed(msg: string) {
+    // construct profile
+    // save profile to local storage
+    props.history.push("/diez/diez");
+  }
+
+  function questionAnswered(answer: any) {
+    console.log(answer);
+  }
+
+  return (
+    <>
+      <QuestionCard onCompletion={questionAnswered} />
+      <QuestionCard onCompletion={questionAnswered} />
+      <SubmitProfileButton callback={submitProfilePressed} />
+    </>
+  );
 }
 
 export default ProfileBuilder;

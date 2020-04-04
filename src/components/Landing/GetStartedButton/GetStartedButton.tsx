@@ -27,8 +27,8 @@ function GetStartedButton(props: any) {
     <Button
       onClick={() => props.callback()}
       classes={{
-        root: classes.root, // class name, e.g. `classes-nesting-root-x`
-        label: classes.label, // class name, e.g. `classes-nesting-label-x`
+        root: classes.root,
+        label: classes.label,
       }}
     >
       Get Started

@@ -8,16 +8,8 @@ import GetStartedButton from "../GetStartedButton/GetStartedButton";
 import StepCard from "../StepCard/StepCard";
 
 function Landing(props: any) {
-  const [input, setInput] = useState<any>({});
-
-  const handleInputChange = (e: any) =>
-    setInput({
-      ...input,
-      [e.currentTarget.name]: e.currentTarget.value,
-    });
-
   function getStartedClicked() {
-    console.log("hi");
+    props.history.push("/quiz");
   }
 
   return (
@@ -28,6 +20,7 @@ function Landing(props: any) {
       </Typography>
       <StepCard title="Tell Repo Owners what you like to do" />
       <StepCard title="Prioritize issues that are right for you" />
+      <Typography variant="h4">There's no Step 3</Typography>
       <GetStartedButton callback={getStartedClicked} />
       <Footer />
     </div>

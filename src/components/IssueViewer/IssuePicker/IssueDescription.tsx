@@ -11,19 +11,19 @@ const useStyles = makeStyles({
   root: {
     minWidth: 275,
     maxWidth: "25%",
-    margin: "0 auto"
+    margin: "0 auto",
   },
   bullet: {
     display: "inline-block",
     margin: "0 2px",
-    transform: "scale(0.8)"
+    transform: "scale(0.8)",
   },
   title: {
-    fontSize: 14
+    fontSize: 14,
   },
   pos: {
-    marginBottom: 12
-  }
+    marginBottom: 12,
+  },
 });
 
 function IssueDescription(props: any) {
@@ -31,7 +31,7 @@ function IssueDescription(props: any) {
   const bull = <span className={classes.bullet}>•</span>;
 
   const issue = props.issue;
-  console.log(issue);
+
   return (
     <>
       <Card className={classes.root}>
