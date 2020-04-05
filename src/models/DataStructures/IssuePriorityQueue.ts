@@ -1,12 +1,15 @@
 import { Issue } from "..";
+import { Profile } from "..";
 
 class IssuePriorityQueue {
   count: number = 0;
   issues: Issue[];
+  profile: Profile;
 
-  constructor(issues: Issue[]) {
+  constructor(issues: Issue[], profile: Profile) {
     // put into a PQ here with issue1.score > issue2.score
     this.issues = issues;
+    this.profile = profile;
   }
 
   pop(): Issue | null {

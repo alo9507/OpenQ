@@ -1,25 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 
-import SubmitProfileButton from "./SubmitProfileButton";
-import QuestionCard from "./QuestionCard";
+import LayoutWrapper from "../Shared/Layouts/LayoutWrapper";
+import { Grid } from "@material-ui/core";
+import SurveySlider from "./SurveySlider";
 
 function ProfileBuilder(props: any) {
-  function submitProfilePressed(msg: string) {
-    // construct profile
-    // save profile to local storage
-    props.history.push("/diez/diez");
-  }
-
-  function questionAnswered(answer: any) {
-    console.log(answer);
-  }
+  const [input, setInput] = useState<any>({});
 
   return (
-    <>
-      <QuestionCard onCompletion={questionAnswered} />
-      <QuestionCard onCompletion={questionAnswered} />
-      <SubmitProfileButton callback={submitProfilePressed} />
-    </>
+    <LayoutWrapper>
+      <Grid
+        container
+        spacing={1}
+        justify="center"
+        alignContent="center"
+        direction="column"
+      >
+        <SurveySlider />
+      </Grid>
+    </LayoutWrapper>
   );
 }
 

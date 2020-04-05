@@ -5,7 +5,7 @@ import { MockQueryReturn } from "../../../models/Mocks";
 
 import { Issue, IssuePriorityQueue } from "../../../models";
 import IssuePicker from "../IssuePicker/IssuePicker";
-
+import LayoutWrapper from "../../Shared/Layouts/LayoutWrapper";
 import "./IssueViewer.css";
 
 function IssueViewer(props: any) {
@@ -38,17 +38,21 @@ function IssueViewer(props: any) {
     return issue;
   });
 
-  const pq = new IssuePriorityQueue(issues);
+  const profile = JSON.parse(localStorage.getItem("profile"));
+  const pq = new IssuePriorityQueue(issues, profile);
 
   return (
-    <div className="IssueViewer">
-      <IssuePicker
-        pq={pq}
-        openIssuesCount={openIssuesCount}
-        repoOwner={repoOwner}
-        repoName={repoName}
-      />
-    </div>
+    <LayoutWrapper>
+      <div className="IssueViewer">
+        <IssuePicker
+          profile={profile}
+          pq={pq}
+          openIssuesCount={openIssuesCount}
+          repoOwner={repoOwner}
+          repoName={repoName}
+        />
+      </div>
+    </LayoutWrapper>
   );
 }
 
