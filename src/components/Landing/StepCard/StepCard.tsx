@@ -6,6 +6,10 @@ import Typography from "@material-ui/core/Typography";
 
 import StepDemo from "./StepDemo";
 
+interface StepCardProps {
+  title: string;
+}
+
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
@@ -23,7 +27,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function SimpleCard(props: any) {
+const SimpleCard: React.FC<StepCardProps> = (props) => {
   const classes = useStyles();
 
   return (
@@ -41,4 +45,6 @@ export default function SimpleCard(props: any) {
       </CardContent>
     </Card>
   );
-}
+};
+
+export default SimpleCard;

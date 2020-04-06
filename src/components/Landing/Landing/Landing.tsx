@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { Typography, Grid } from "@material-ui/core";
 
-import { Header, Footer } from "../../Shared/Layouts";
 import "./Landing.css";
 import GetStartedButton from "../GetStartedButton/GetStartedButton";
 import StepCard from "../StepCard/StepCard";
 import LayoutWrapper from "../../Shared/Layouts/LayoutWrapper";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-function Landing(props: any) {
+interface LandingProps {}
+
+const Landing: React.FC<LandingProps & RouteComponentProps> = (props) => {
   function getStartedClicked() {
     props.history.push("/quiz");
   }
@@ -35,6 +37,6 @@ function Landing(props: any) {
       </Grid>
     </LayoutWrapper>
   );
-}
+};
 
-export default Landing;
+export default withRouter(Landing);

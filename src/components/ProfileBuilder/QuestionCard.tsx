@@ -17,8 +17,13 @@ const useStyles = makeStyles({
   },
 });
 
+interface QuestionCardProps {
+  onCompletion?: () => void;
+  id: string;
+}
+
 // style to take up full page
-function QuestionCard(props: any) {
+const QuestionCard: React.FC<QuestionCardProps> = (props) => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
@@ -36,6 +41,6 @@ function QuestionCard(props: any) {
       </CardActions>
     </Card>
   );
-}
+};
 
 export default QuestionCard;

@@ -7,8 +7,18 @@ import { Issue, IssuePriorityQueue } from "../../../models";
 import IssuePicker from "../IssuePicker/IssuePicker";
 import LayoutWrapper from "../../Shared/Layouts/LayoutWrapper";
 import "./IssueViewer.css";
+import { RouteComponentProps, withRouter } from "react-router-dom";
 
-function IssueViewer(props: any) {
+interface IssueViewerProps {}
+
+interface IssueViewerPathVariables {
+  repoOwner: string;
+  repoName: string;
+}
+
+const IssueViewer: React.FC<
+  IssueViewerProps & RouteComponentProps<IssueViewerPathVariables>
+> = (props) => {
   var repoOwner = props.match.params.repoOwner;
   var repoName = props.match.params.repoName;
 
@@ -54,9 +64,9 @@ function IssueViewer(props: any) {
       </div>
     </LayoutWrapper>
   );
-}
+};
 
-export default IssueViewer;
+export default withRouter(IssueViewer);
 
 const STUB_QUERY = gql`
   query {

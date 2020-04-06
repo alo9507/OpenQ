@@ -21,7 +21,11 @@ const useStyles = makeStyles({
   },
 });
 
-function GetStartedButton(props: any) {
+interface GetStartedButtonProps {
+  callback: () => void;
+}
+
+const GetStartedButton: React.FC<GetStartedButtonProps> = (props: any) => {
   const classes = useStyles();
   return (
     <Button
@@ -34,6 +38,6 @@ function GetStartedButton(props: any) {
       Get Started
     </Button>
   );
-}
+};
 
 export default GetStartedButton;

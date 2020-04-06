@@ -15,7 +15,7 @@ const useStyles = makeStyles({
   },
 });
 
-function AddBadge(props: any) {
+const AddBadge = (props: any) => {
   const classes = useStyles();
 
   return (
@@ -34,6 +34,6 @@ function AddBadge(props: any) {
       <Badge />
     </>
   );
-}
+};
 
 export default AddBadge;

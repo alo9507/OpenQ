@@ -4,7 +4,7 @@ import LayoutWrapper from "../Shared/Layouts/LayoutWrapper";
 import { Grid } from "@material-ui/core";
 import SurveySlider from "./SurveySlider";
 
-function ProfileBuilder(props: any) {
+export const ProfileBuilder: React.FC<any> = (props) => {
   const [input, setInput] = useState<any>({});
 
   return (
@@ -16,10 +16,10 @@ function ProfileBuilder(props: any) {
         alignContent="center"
         direction="column"
       >
-        <SurveySlider />
+        <SurveySlider question={{}} />
       </Grid>
     </LayoutWrapper>
   );
-}
+};
 
 export default ProfileBuilder;
