@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
 import { MockQueryReturn } from "../../../models/Mocks";
@@ -21,18 +21,17 @@ const IssueViewer: React.FC<
 > = (props) => {
   var repoOwner = props.match.params.repoOwner;
   var repoName = props.match.params.repoName;
+  const shouldFetchLiveData = process.env.REACT_APP_FETCH_LIVE_DATA;
 
   let { data, loading, error } = new MockQueryReturn();
 
-  const query = process.env.REACT_APP_FETCH_LIVE_DATA
-    ? GET_OPEN_ISSUES
-    : STUB_QUERY;
+  const query = shouldFetchLiveData ? GET_OPEN_ISSUES : STUB_QUERY;
 
   const result = useQuery(query, {
     variables: { repoOwner: repoOwner, repoName: repoName },
   });
 
-  if (process.env.REACT_APP_FETCH_LIVE_DATA) {
+  if (shouldFetchLiveData) {
     data = result.data;
     error = result.error;
     loading = result.loading;

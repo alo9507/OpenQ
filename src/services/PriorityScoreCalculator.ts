@@ -25,15 +25,17 @@ class PriorityScoreCalculator {
       switch (labelCategory) {
         case LabelCategory.skillLevel:
           let parsedSkillLevel = parseSkillLevel(label);
-          if (profile.skillLevel.toUpperCase == parsedSkillLevel.toUpperCase) {
+          if (profile.skillLevel.toUpperCase === parsedSkillLevel.toUpperCase) {
             score += 1 * this.multipliers.skillLevel;
           }
+          break;
         case LabelCategory.programmingLanguage:
           if (
             profile.preferredLanguages.includes(label as ProgrammingLanguages)
           ) {
             score += 1 * this.multipliers.programmingLanguage;
           }
+          break;
         case LabelCategory.areaOfInterest:
           if (profile.areasOfInterest.includes(label as AreaOfInterest)) {
             score += 1 * this.multipliers.areaOfInterest;
@@ -64,7 +66,7 @@ function determineLabelCategory(label: string): LabelCategory {
 }
 
 function parseSkillLevel(label: string) {
-  if (label == "good first timer") {
+  if (label === "good first timer") {
     return SkillLevel.beginner;
   }
 }

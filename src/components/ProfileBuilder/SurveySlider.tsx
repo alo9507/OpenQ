@@ -16,17 +16,17 @@ const SurveySlider: React.FC<SurveySliderProps & RouteComponentProps> = (
     props.history.push("/diez/diez");
   }
 
-  function questionAnswered(event: any) {
-    window.scroll({
-      top: 500,
-      left: 100,
-      behavior: "smooth",
-    });
-    // setInput({
-    //   ...input,
-    //   [event.currentTarget.name]: event.currentTarget.value,
-    // });
-  }
+  // function questionAnswered(event: any) {
+  //   window.scroll({
+  //     top: 500,
+  //     left: 100,
+  //     behavior: "smooth",
+  //   });
+  //   // setInput({
+  //   //   ...input,
+  //   //   [event.currentTarget.name]: event.currentTarget.value,
+  //   // });
+  // }
 
   return (
     <>

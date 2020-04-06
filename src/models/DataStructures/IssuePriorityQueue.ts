@@ -14,13 +14,13 @@ class IssuePriorityQueue {
 
   pop(): Issue | null {
     let issue =
-      this.issues[this.count] == undefined ? null : this.issues[this.count++];
+      this.issues[this.count] === undefined ? null : this.issues[this.count++];
     return issue;
   }
 
   toString(): string {
     let result = "";
-    this.issues.map((issue: any) => {
+    this.issues.forEach((issue: any) => {
       result += `\n${issue.title}`;
     });
 

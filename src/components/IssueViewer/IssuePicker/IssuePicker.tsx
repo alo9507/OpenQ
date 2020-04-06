@@ -18,7 +18,7 @@ function IssuePicker(props: any) {
     <>
       <h1>
         There{" "}
-        {openIssuesCount == 1
+        {openIssuesCount === 1
           ? `is 1 open issue`
           : `are ${openIssuesCount} open issues`}{" "}
         that {repoName} could use your skills on!
@@ -26,7 +26,7 @@ function IssuePicker(props: any) {
       <GetStoryButton callback={() => getStoryPressed()} />
       <br />
       {/* If it hasn't been clicked yet then don't render the IssueDescription */}
-      {currentIssue == null ? (
+      {currentIssue === null ? (
         fresh ? (
           <h3>Click to get story</h3>
         ) : (

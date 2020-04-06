@@ -23,9 +23,8 @@ class Issue implements IssueInterface {
     this.title = issue.title;
     this.body = issue.body;
     this.url = issue.url;
-
     this.labels = [];
-    issue.labels.edges.map((labelObject: any) => {
+    issue.labels.edges.forEach((labelObject: any) => {
       this.labels.push(labelObject.node.name);
     });
 

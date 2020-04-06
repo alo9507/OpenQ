@@ -13,7 +13,7 @@ class Heap<T> {
   }
 
   pop(): T | null {
-    if (this.elements.length == 0) {
+    if (this.elements.length === 0) {
       return null;
     }
 

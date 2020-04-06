@@ -28,7 +28,6 @@ const useStyles = makeStyles({
 
 function IssueDescription(props: any) {
   const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
 
   const issue = props.issue;
 
