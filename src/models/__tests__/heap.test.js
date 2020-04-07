@@ -1,4 +1,4 @@
-import { Heap } from "../models";
+import { Heap } from "..";
 
 // test("empty heap should return null when popped", () => {
 //   expect(new Heap().pop()).toBe(null);

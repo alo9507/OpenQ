@@ -7,12 +7,16 @@ import StepCard from "../StepCard/StepCard";
 import LayoutWrapper from "../../Shared/Layouts/LayoutWrapper";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
+import { useDocumentTitle } from "../../../hooks";
+
 interface LandingProps {}
 
 const Landing: React.FC<LandingProps & RouteComponentProps> = (props) => {
   function getStartedClicked() {
     props.history.push("/quiz");
   }
+
+  useDocumentTitle("OpenQ");
 
   return (
     <LayoutWrapper>
