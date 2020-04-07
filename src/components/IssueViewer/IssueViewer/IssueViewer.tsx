@@ -29,6 +29,7 @@ const IssueViewer: React.FC<
   const query = shouldFetchLiveData ? GET_OPEN_ISSUES : STUB_QUERY;
   const width = useWindowWidth();
   console.log(width);
+  
   useDocumentTitle(`OpenQ | ${repoName}`);
 
   const result = useQuery(query, {

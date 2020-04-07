@@ -12,7 +12,11 @@ import Landing from "./components/Landing/Landing/Landing";
 import IssueViewer from "./components/IssueViewer/IssueViewer/IssueViewer";
 import ProfileBuilder from "./components/ProfileBuilder/ProfileBuilder";
 
-import "./index.css";
+import { ThemeProvider } from "@material-ui/core"
+
+import { theme } from "./style"
+
+import "./style/index.css";
 
 const cache = new InMemoryCache();
 const httpLink = new HttpLink({
@@ -38,9 +42,11 @@ const client = new ApolloClient({
 const routing = (
   <Router>
     <ApolloProvider client={client}>
-      <Route exact path="/" component={Landing} />
-      <Route exact path="/quiz" component={ProfileBuilder} />
-      <Route exact path="/:repoOwner/:repoName" component={IssueViewer} />
+      <ThemeProvider theme={theme}>
+        <Route exact path="/" component={Landing} />
+        <Route exact path="/quiz" component={ProfileBuilder} />
+        <Route exact path="/:repoOwner/:repoName" component={IssueViewer} />
+      </ThemeProvider>
     </ApolloProvider>
   </Router>
 );
