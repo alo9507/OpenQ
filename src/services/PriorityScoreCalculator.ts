@@ -19,7 +19,7 @@ class PriorityScoreCalculator {
     let score = 0;
 
     for (let i = 0; i < labels.length; i++) {
-      let label = labels[i].toLowerCase();
+      let label = labels[i].name.toLowerCase();
       let labelCategory = determineLabelCategory(label);
 
       switch (labelCategory) {

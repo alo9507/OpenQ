@@ -1,6 +1,8 @@
+import Label from "./Label/Label";
+
 export default interface IssueInterface {
   title: string;
-  labels: string[];
+  labels: Label[];
   url: string;
   body: string;
   priorityScore: number;

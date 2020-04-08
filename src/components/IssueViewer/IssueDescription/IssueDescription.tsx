@@ -7,6 +7,8 @@ import Link from "@material-ui/core/Link";
 import Button from "@material-ui/core/Button";
 
 import IssueDescriptionStyle from "./IssueDescriptionStyle";
+import IssueLabel from "../IssueLabel/IssueLabel";
+import Label from "../../../models/Issue/Label/Label";
 
 function IssueDescription(props: any) {
   const classes = IssueDescriptionStyle();
@@ -23,9 +25,18 @@ function IssueDescription(props: any) {
             </Link>
           </Typography>
           {issue.labels.map((label: any, index: number) => (
-            <Typography variant="body2" component="p" key={index}>
-              {label}
-            </Typography>
+            <IssueLabel
+              key={index}
+              label={
+                new Label({
+                  name: label.name,
+                  color: label.color,
+                  discriminator: "LABEL",
+                  totalCount: "0",
+                })
+              }
+              small={true}
+            />
           ))}
           <Typography variant="body2" component="p">
             {issue.body}

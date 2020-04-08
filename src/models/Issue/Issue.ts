@@ -1,10 +1,11 @@
 import { PriorityScoreCalculator } from "../../services";
 import { MockObjects, IssueArguments } from "..";
 import IssueInterface, { instanceOfIssue } from "./IssueInterface";
+import Label from "./Label/Label";
 
 class Issue implements IssueInterface {
   title: string;
-  labels: string[];
+  labels: Label[];
   url: string;
   body: string;
   priorityScore: number;
@@ -25,7 +26,14 @@ class Issue implements IssueInterface {
     this.url = issue.url;
     this.labels = [];
     issue.labels.edges.forEach((labelObject: any) => {
-      this.labels.push(labelObject.node.name);
+      this.labels.push(
+        new Label({
+          name: labelObject.node.name,
+          color: labelObject.node.color,
+          discriminator: "LABEL",
+          totalCount: "0",
+        })
+      );
     });
 
     let profile = MockObjects.profile();

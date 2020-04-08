@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Components
-import IssueDescription from "./IssueDescription/IssueDescription";
+import IssueDescription from "../IssueDescription/IssueDescription";
 import GetStoryButton from "./GetStoryButton";
 
 // DataStructures

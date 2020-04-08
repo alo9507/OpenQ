@@ -6,12 +6,14 @@ import { MockQueryReturn } from "../../../models/Mocks";
 import { Issue, IssuePriorityQueue } from "../../../models";
 import IssuePicker from "../IssuePicker/IssuePicker";
 import { LayoutWrapper } from "../../core";
-import "./IssueViewer.css";
+import "./IssueViewerStyle.ts";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { useDocumentTitle, useWindowWidth } from "../../../hooks";
 
 import IssueLabel from "../IssueLabel/IssueLabel";
-import Label from "../models/Label";
+import Label from "../../../models/Issue/Label/Label";
+
+import IssueViewerStyle from "./IssueViewerStyle";
 
 interface IssueViewerProps {}
 
@@ -28,6 +30,8 @@ const IssueViewer: React.FC<
   const shouldFetchLiveData = process.env.REACT_APP_FETCH_LIVE_DATA;
 
   let { data, loading, error } = new MockQueryReturn();
+
+  const { issueViewer, labelContainer } = IssueViewerStyle();
 
   const query = shouldFetchLiveData ? GET_OPEN_ISSUES : STUB_QUERY;
   const width = useWindowWidth();
@@ -62,7 +66,7 @@ const IssueViewer: React.FC<
   console.log(labels);
 
   const labelElements = labels.map((label, index) => {
-    return <IssueLabel label={label} />;
+    return <IssueLabel label={label} small={false} />;
   });
 
   const profile = JSON.parse(localStorage.getItem("profile"));
@@ -70,8 +74,8 @@ const IssueViewer: React.FC<
 
   return (
     <LayoutWrapper>
-      <div className="IssueViewer">
-        <ul>{labelElements}</ul>
+      <div className={issueViewer}>
+        <div className={labelContainer}>{labelElements}</div>
         <IssuePicker
           profile={profile}
           pq={pq}
@@ -107,6 +111,7 @@ const GET_OPEN_ISSUES = gql`
               edges {
                 node {
                   name
+                  color
                 }
               }
             }
@@ -118,6 +123,9 @@ const GET_OPEN_ISSUES = gql`
           node {
             name
             color
+            issues {
+              totalCount
+            }
           }
         }
       }
