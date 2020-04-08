@@ -3,18 +3,11 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import OQCheckboxStyle from "./OQCheckboxStyle";
 
-interface FieldProps {
-  value: string | boolean;
-  onChange: (e?: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
 interface OQCheckboxProps {
-  input: FieldProps;
   label: string;
-  checked: boolean;
 }
 
-const OQCheckbox = (props: OQCheckboxProps) => {
+const OQCheckbox = (props: any) => {
   const classes = OQCheckboxStyle();
 
   return (
@@ -25,7 +18,7 @@ const OQCheckbox = (props: OQCheckboxProps) => {
             checked: classes.checked,
             colorPrimary: classes.colorPrimary,
           }}
-          checked={props.input.value ? true : false}
+          checked={props.input.checked ? true : false}
           onChange={props.input.onChange}
           color="primary"
         />

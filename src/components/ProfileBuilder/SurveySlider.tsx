@@ -2,9 +2,10 @@ import React from "react";
 import SubmitProfileButton from "./SubmitProfileButton";
 import QuestionCard from "./QuestionCard/QuestionCard";
 import { RouteComponentProps, withRouter } from "react-router-dom";
+import QuestionCardType from "../ProfileBuilder/QuestionCard/QuestionCardType";
 
 interface SurveySliderProps {
-  question: any;
+  questions: any;
 }
 
 // Takes in Questions and a completion callback which accepts the questions back
@@ -16,22 +17,23 @@ const SurveySlider: React.FC<SurveySliderProps & RouteComponentProps> = (
     props.history.push("/diez/diez");
   }
 
-  // function questionAnswered(event: any) {
-  //   window.scroll({
-  //     top: 500,
-  //     left: 100,
-  //     behavior: "smooth",
-  //   });
-  //   // setInput({
-  //   //   ...input,
-  //   //   [event.currentTarget.name]: event.currentTarget.value,
-  //   // });
-  // }
+  function questionAnswered() {
+    // progress stepper
+    //
+  }
 
   return (
     <>
-      <QuestionCard id="question1" />
-      <QuestionCard id="question2" />
+      <QuestionCard
+        question="As a developer, I like to work on..."
+        type={QuestionCardType.ranking}
+        onCompletion={questionAnswered}
+      />
+      <QuestionCard
+        question="What's you skill level?"
+        type={QuestionCardType.radioGroup}
+        onCompletion={questionAnswered}
+      />
       <SubmitProfileButton callback={submitProfilePressed} />
     </>
   );

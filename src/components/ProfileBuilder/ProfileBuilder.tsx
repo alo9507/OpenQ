@@ -14,7 +14,7 @@ export const ProfileBuilder: React.FC<any> = (props) => {
         alignContent="center"
         direction="column"
       >
-        <SurveySlider question={{}} />
+        <SurveySlider questions={{}} />
       </Grid>
     </LayoutWrapper>
   );
