@@ -10,6 +10,9 @@ import "./IssueViewer.css";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { useDocumentTitle, useWindowWidth } from "../../../hooks";
 
+import IssueLabel from "../IssueLabel/IssueLabel";
+import Label from "../models/Label";
+
 interface IssueViewerProps {}
 
 interface IssueViewerPathVariables {
@@ -52,12 +55,23 @@ const IssueViewer: React.FC<
     return issue;
   });
 
+  const labels: Label[] = data.repository.labels.edges.map((node: any) => {
+    const label = new Label(node.node);
+    return label;
+  });
+  console.log(labels);
+
+  const labelElements = labels.map((label, index) => {
+    return <IssueLabel label={label} />;
+  });
+
   const profile = JSON.parse(localStorage.getItem("profile"));
   const pq = new IssuePriorityQueue(issues, profile);
 
   return (
     <LayoutWrapper>
       <div className="IssueViewer">
+        <ul>{labelElements}</ul>
         <IssuePicker
           profile={profile}
           pq={pq}
@@ -96,6 +110,14 @@ const GET_OPEN_ISSUES = gql`
                 }
               }
             }
+          }
+        }
+      }
+      labels(first: 100) {
+        edges {
+          node {
+            name
+            color
           }
         }
       }
