@@ -1,6 +1,6 @@
 import React from "react";
 
-import LayoutWrapper from "../Shared/Layouts/LayoutWrapper";
+import { LayoutWrapper } from "../core";
 import { Grid } from "@material-ui/core";
 import SurveySlider from "./SurveySlider";
 

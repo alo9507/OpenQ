@@ -1,6 +1,6 @@
 import React from "react";
 import SubmitProfileButton from "./SubmitProfileButton";
-import QuestionCard from "./QuestionCard";
+import QuestionCard from "./QuestionCard/QuestionCard";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 interface SurveySliderProps {

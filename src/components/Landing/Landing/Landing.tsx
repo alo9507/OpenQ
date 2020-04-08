@@ -4,7 +4,7 @@ import { Typography, Grid } from "@material-ui/core";
 import "./Landing.css";
 import GetStartedButton from "../GetStartedButton/GetStartedButton";
 import StepCard from "../StepCard/StepCard";
-import LayoutWrapper from "../../Shared/Layouts/LayoutWrapper";
+import LayoutWrapper from "../../core/Layouts/LayoutWrapper";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 
 import { useDocumentTitle } from "../../../hooks";

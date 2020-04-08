@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import {
   Button,
-  TextField,
   Card,
   CardActions,
   CardContent,
   Typography,
-  makeStyles,
 } from "@material-ui/core";
 
-import { useFormInput } from "../../hooks";
+import QuestionCardStyles from "./QuestionCardStyles";
 
-import OQCheckbox from "../Shared/Form/OQCheckbox/OQCheckbox"
+import { useFormInput } from "../../../hooks";
 
-const useStyles = makeStyles({
-  card: {
-    marginTop: "50px",
-    minHeight: "90vh",
-    minWidth: "80vw",
-  },
-});
+import OQCheckbox from "../../core/Form/OQCheckbox/OQCheckbox";
+import OQTextField from "../../core/Form/OQTextField/OQTextField";
 
 interface QuestionCardProps {
   onCompletion?: () => void;
@@ -28,17 +21,26 @@ interface QuestionCardProps {
 
 // style to take up full page
 const QuestionCard: React.FC<QuestionCardProps> = (props) => {
-  const classes = useStyles();
+  const classes = QuestionCardStyles();
   const answer = useFormInput("", "place");
-  const [checked, setChecked] = useState(false)
+  const [checked, setChecked] = useState(false);
   return (
     <Card className={classes.card}>
       <Typography>Previous^</Typography>
       <CardContent>
         <Typography variant="h4">What's your skill level?</Typography>
         <form noValidate autoComplete="off">
-          <TextField id="name" label="Name" {...answer} />
-          <OQCheckbox label="MEE" checked={checked} input={{value: checked, onChange: () => setChecked(!checked)}} />
+          <OQTextField
+            label={"Label"}
+            type={"input"}
+            input={"input"}
+            meta={{ touched: false, invalid: false, error: false }}
+          />
+          <OQCheckbox
+            label="MEE"
+            checked={checked}
+            input={{ value: checked, onChange: () => setChecked(!checked) }}
+          />
         </form>
       </CardContent>
       <CardActions>

@@ -5,7 +5,7 @@ import { MockQueryReturn } from "../../../models/Mocks";
 
 import { Issue, IssuePriorityQueue } from "../../../models";
 import IssuePicker from "../IssuePicker/IssuePicker";
-import LayoutWrapper from "../../Shared/Layouts/LayoutWrapper";
+import { LayoutWrapper } from "../../core";
 import "./IssueViewer.css";
 import { RouteComponentProps, withRouter } from "react-router-dom";
 import { useDocumentTitle, useWindowWidth } from "../../../hooks";
@@ -29,7 +29,7 @@ const IssueViewer: React.FC<
   const query = shouldFetchLiveData ? GET_OPEN_ISSUES : STUB_QUERY;
   const width = useWindowWidth();
   console.log(width);
-  
+
   useDocumentTitle(`OpenQ | ${repoName}`);
 
   const result = useQuery(query, {
