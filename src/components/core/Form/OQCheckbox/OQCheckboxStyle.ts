@@ -1,5 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import theme from "../../../../style/theme";
 
 const OQCheckboxStyle = makeStyles({
   checked: {

@@ -4,7 +4,7 @@ import {
   Profile,
   SkillLevel,
   ProgrammingLanguages,
-  LabelCategory,
+  MatchCategory,
   AreaOfInterest,
 } from "./Profile";
 
@@ -17,7 +17,7 @@ export {
   SkillLevel,
   ProgrammingLanguages,
   Heap,
-  LabelCategory,
+  MatchCategory,
   AreaOfInterest,
   MockObjects,
   IssuePriorityQueue,

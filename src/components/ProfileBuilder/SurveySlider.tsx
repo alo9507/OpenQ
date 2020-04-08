@@ -1,39 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import SubmitProfileButton from "./SubmitProfileButton";
 import QuestionCard from "./QuestionCard/QuestionCard";
 import { RouteComponentProps, withRouter } from "react-router-dom";
-import QuestionCardType from "../ProfileBuilder/QuestionCard/QuestionCardType";
+import Question from "./models/Question";
 
 interface SurveySliderProps {
-  questions: any;
+  questions: Question[];
+  surveyComplete: (response: any) => void;
 }
 
-// Takes in Questions and a completion callback which accepts the questions back
-// Question format?
 const SurveySlider: React.FC<SurveySliderProps & RouteComponentProps> = (
   props
 ) => {
-  function submitProfilePressed(msg: string) {
-    props.history.push("/diez/diez");
+  const [formState, setFormState] = useState({});
+  function submitProfilePressed() {
+    props.surveyComplete(formState);
   }
 
-  function questionAnswered() {
-    // progress stepper
-    //
+  function questionAnswered(response) {
+    console.log(response);
+    setFormState({ ...formState, ...response });
   }
+
+  const questionCards = props.questions.map((question, index) => {
+    return (
+      <QuestionCard
+        key={index}
+        type={question.type}
+        question={question.question}
+        answers={question.answers}
+        onCompletion={questionAnswered}
+      />
+    );
+  });
 
   return (
     <>
-      <QuestionCard
-        question="As a developer, I like to work on..."
-        type={QuestionCardType.ranking}
-        onCompletion={questionAnswered}
-      />
-      <QuestionCard
-        question="What's you skill level?"
-        type={QuestionCardType.radioGroup}
-        onCompletion={questionAnswered}
-      />
+      {questionCards}
       <SubmitProfileButton callback={submitProfilePressed} />
     </>
   );

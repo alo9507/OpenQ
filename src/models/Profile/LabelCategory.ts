@@ -1,8 +1,8 @@
-enum LabelCategory {
+enum MatchCategory {
   skillLevel,
   programmingLanguage,
   areaOfInterest,
-  default
+  default,
 }
 
-export default LabelCategory;
+export default MatchCategory;

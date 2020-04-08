@@ -1,7 +1,7 @@
 import {
   Issue,
   Profile,
-  LabelCategory,
+  MatchCategory,
   ProgrammingLanguages,
   AreaOfInterest,
   SkillLevel,
@@ -23,20 +23,20 @@ class PriorityScoreCalculator {
       let labelCategory = determineLabelCategory(label);
 
       switch (labelCategory) {
-        case LabelCategory.skillLevel:
+        case MatchCategory.skillLevel:
           let parsedSkillLevel = parseSkillLevel(label);
           if (profile.skillLevel.toUpperCase === parsedSkillLevel.toUpperCase) {
             score += 1 * this.multipliers.skillLevel;
           }
           break;
-        case LabelCategory.programmingLanguage:
+        case MatchCategory.programmingLanguage:
           if (
             profile.preferredLanguages.includes(label as ProgrammingLanguages)
           ) {
             score += 1 * this.multipliers.programmingLanguage;
           }
           break;
-        case LabelCategory.areaOfInterest:
+        case MatchCategory.areaOfInterest:
           if (profile.areasOfInterest.includes(label as AreaOfInterest)) {
             score += 1 * this.multipliers.areaOfInterest;
           }
@@ -47,22 +47,22 @@ class PriorityScoreCalculator {
   }
 }
 
-function determineLabelCategory(label: string): LabelCategory {
+function determineLabelCategory(label: string): MatchCategory {
   let skillLevelLabels = ["good first timer", "beginner"];
   let programmingLanguageLabels = ["swift", "go"];
   let areaOfInterest = ["frontend", "backend", "ui", "ux"];
 
   if (skillLevelLabels.includes(label)) {
-    return LabelCategory.skillLevel;
+    return MatchCategory.skillLevel;
   }
   if (programmingLanguageLabels.includes(label)) {
-    return LabelCategory.programmingLanguage;
+    return MatchCategory.programmingLanguage;
   }
   if (areaOfInterest.includes(label)) {
-    return LabelCategory.areaOfInterest;
+    return MatchCategory.areaOfInterest;
   }
 
-  return LabelCategory.default;
+  return MatchCategory.default;
 }
 
 function parseSkillLevel(label: string) {
