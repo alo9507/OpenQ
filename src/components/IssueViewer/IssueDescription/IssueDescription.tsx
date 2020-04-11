@@ -11,7 +11,7 @@ import IssueLabel from "../IssueLabel/IssueLabel";
 import Label from "../../../models/Issue/Label/Label";
 
 function IssueDescription(props: any) {
-  const { injectedIssueBodyHtml, root, title } = IssueDescriptionStyle();
+  const { injectedIssueBodyHtml, root, title, head } = IssueDescriptionStyle();
 
   const issue = props.issue;
 
@@ -19,25 +19,27 @@ function IssueDescription(props: any) {
     <>
       <Card className={root}>
         <CardContent>
-          <Typography className={title} color="primary" gutterBottom>
-            <Link className={title} href={issue.url} color="textSecondary">
-              {issue.title}
-            </Link>
-          </Typography>
-          {issue.labels.map((label: any, index: number) => (
-            <IssueLabel
-              key={index}
-              label={
-                new Label({
-                  name: label.name,
-                  color: label.color,
-                  discriminator: "LABEL",
-                  totalCount: "0",
-                })
-              }
-              small={true}
-            />
-          ))}
+          <div className={head}>
+            <Typography className={title} color="primary" gutterBottom>
+              <Link className={title} href={issue.url} color="textSecondary">
+                {issue.title}
+              </Link>
+            </Typography>
+            {issue.labels.map((label: any, index: number) => (
+              <IssueLabel
+                key={index}
+                label={
+                  new Label({
+                    name: label.name,
+                    color: label.color,
+                    discriminator: "LABEL",
+                    totalCount: "0",
+                  })
+                }
+                small={true}
+              />
+            ))}
+          </div>
           <div
             className={injectedIssueBodyHtml}
             dangerouslySetInnerHTML={{

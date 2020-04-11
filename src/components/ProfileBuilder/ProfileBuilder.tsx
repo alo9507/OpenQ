@@ -2,7 +2,6 @@ import React from "react";
 import {
   ProgrammingLanguages,
   SkillLevel,
-  MatchCategory,
   AreaOfInterest,
 } from "../../models/Profile";
 
@@ -15,7 +14,7 @@ import QuestionCardType from "./QuestionCard/QuestionCardType";
 export const ProfileBuilder: React.FC<any> = (props) => {
   let preferredLanguages: Question = {
     type: QuestionCardType.multiselect,
-    matchCategory: MatchCategory.programmingLanguage,
+    matchCategory: SkillLevel.beginner,
     question: "What are your preferred programming langauges?",
     answers: [
       { name: ProgrammingLanguages.swift, label: "Swift" },
@@ -25,7 +24,7 @@ export const ProfileBuilder: React.FC<any> = (props) => {
 
   let areasOfInterest: Question = {
     type: QuestionCardType.multiselect,
-    matchCategory: MatchCategory.areaOfInterest,
+    matchCategory: SkillLevel.beginner,
     question: "What aspects of software development get you the most excited?",
     answers: [
       { name: AreaOfInterest.ux, label: "UX" },
@@ -38,7 +37,7 @@ export const ProfileBuilder: React.FC<any> = (props) => {
 
   let skillLevel: Question = {
     type: QuestionCardType.multiselect,
-    matchCategory: MatchCategory.skillLevel,
+    matchCategory: SkillLevel.beginner,
     question:
       "On this project, what level of difficulty would you like your issues?",
     answers: [

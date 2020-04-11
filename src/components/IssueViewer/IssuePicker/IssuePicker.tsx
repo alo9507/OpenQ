@@ -26,15 +26,17 @@ function IssuePicker(props: any) {
       <GetStoryButton callback={() => getStoryPressed()} />
       <br />
       {/* If it hasn't been clicked yet then don't render the IssueDescription */}
-      {currentIssue === null ? (
-        fresh ? (
-          <h3>Click to get story</h3>
+      <div style={{ minHeight: "70vh" }}>
+        {currentIssue === null ? (
+          fresh ? (
+            <h3>Click to get story</h3>
+          ) : (
+            <h1>No More Stories</h1>
+          )
         ) : (
-          <h1>No More Stories</h1>
-        )
-      ) : (
-        <IssueDescription issue={currentIssue} style={{ maxWidth: "25%" }} />
-      )}
+          <IssueDescription issue={currentIssue} style={{ maxWidth: "25%" }} />
+        )}
+      </div>
       <AddBadge
         callback={() =>
           copyToClipboard(

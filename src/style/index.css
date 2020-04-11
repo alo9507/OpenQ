@@ -7,7 +7,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+pre {
+  color: black;
+  text-align: left;
+  padding: 16px;
+  overflow: auto;
+  font-size: 125%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  word-wrap: normal;
+}
+
+pre code {
+  color: black;
+  display: inline;
+  max-width: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  line-height: inherit;
+  word-wrap: normal;
+  background-color: initial;
+  border: 0;
+}
+
+pre > code {
+  color: black;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  word-break: normal;
+  white-space: pre;
+  background: transparent;
+  border: 0;
 }

@@ -1,10 +1,7 @@
-enum MatchCategory {
-  skillLevel,
-  programmingLanguage,
-  areaOfInterest,
-  bugs,
-  enhancements,
-  default,
-}
+import SkillLevel from "./SkillLevel";
+import ProgrammingLanguages from "./ProgrammingLanguages";
+import AreaOfInterest from "./AreaOfInterest";
 
-export default MatchCategory;
+type LabelCategory = SkillLevel | ProgrammingLanguages | AreaOfInterest;
+
+export default LabelCategory;

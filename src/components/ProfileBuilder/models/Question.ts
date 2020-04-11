@@ -1,10 +1,10 @@
 import QuestionCardType from "../QuestionCard/QuestionCardType";
 import Answer from "./Answer";
-import { MatchCategory } from "../../../models";
+import { LabelCategory } from "../../../models";
 
 interface Question {
   type: QuestionCardType;
-  matchCategory: MatchCategory;
+  matchCategory: LabelCategory;
   question: string;
   answers: Answer[];
 }
