@@ -12,7 +12,7 @@ const GetStartedButtonStyle = makeStyles((theme) => ({
     transition: "all 0.6s ease",
     minWidth: "50%",
     "&:hover": {
-      boxShadow: "0 10px 5px 2px rgba(255, 105, 135, .3)",
+      boxShadow: theme.shadows[1],
     },
   },
   label: {
