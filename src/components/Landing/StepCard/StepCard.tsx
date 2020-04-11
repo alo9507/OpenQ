@@ -11,16 +11,12 @@ interface StepCardProps {
 }
 
 const SimpleCard: React.FC<StepCardProps> = (props) => {
-  const classes = StepCardStyle();
+  const { root, title } = StepCardStyle();
 
   return (
-    <Card className={classes.root}>
+    <Card className={root}>
       <CardContent>
-        <Typography
-          className={classes.title}
-          color="textSecondary"
-          gutterBottom
-        >
+        <Typography className={title} color="textSecondary" gutterBottom>
           {props.title}
         </Typography>
         <hr />

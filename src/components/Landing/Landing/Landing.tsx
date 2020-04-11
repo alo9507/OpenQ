@@ -13,7 +13,7 @@ interface LandingProps {}
 
 const Landing: React.FC<LandingProps & RouteComponentProps> = (props) => {
   function getStartedClicked() {
-    props.history.push("/quiz");
+    props.history.push("/diez/diez");
   }
 
   useDocumentTitle("OpenQ");

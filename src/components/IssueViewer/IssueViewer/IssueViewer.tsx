@@ -107,6 +107,7 @@ const GET_OPEN_ISSUES = gql`
             title
             url
             body
+            bodyHTML
             labels(first: 5) {
               edges {
                 node {

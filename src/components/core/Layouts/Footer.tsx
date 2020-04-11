@@ -1,11 +1,17 @@
 import React from "react";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    textAlign: "center",
+  },
+}));
 
 function Footer(props: any) {
-  return (
-    <div>
-      <h1>Footer</h1>
-    </div>
-  );
+  const theme = useTheme();
+  const { root } = useStyles();
+
+  return <footer className={root}>Footer</footer>;
 }
 
 export default Footer;

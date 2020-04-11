@@ -7,7 +7,7 @@ function GetStoryButton(props: any) {
 
   return (
     <Button className={button} onClick={() => props.callback()}>
-      Get Story
+      Pop an Issue
     </Button>
   );
 }

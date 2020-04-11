@@ -8,6 +8,7 @@ class Issue implements IssueInterface {
   labels: Label[];
   url: string;
   body: string;
+  bodyHTML: string;
   priorityScore: number;
 
   constructor(issue: IssueArguments);
@@ -24,6 +25,7 @@ class Issue implements IssueInterface {
     this.title = issue.title;
     this.body = issue.body;
     this.url = issue.url;
+    this.bodyHTML = issue.bodyHTML;
     this.labels = [];
     issue.labels.edges.forEach((labelObject: any) => {
       this.labels.push(

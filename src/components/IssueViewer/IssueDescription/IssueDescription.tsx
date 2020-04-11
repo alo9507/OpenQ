@@ -11,16 +11,16 @@ import IssueLabel from "../IssueLabel/IssueLabel";
 import Label from "../../../models/Issue/Label/Label";
 
 function IssueDescription(props: any) {
-  const classes = IssueDescriptionStyle();
+  const { injectedIssueBodyHtml, root, title } = IssueDescriptionStyle();
 
   const issue = props.issue;
 
   return (
     <>
-      <Card className={classes.root}>
+      <Card className={root}>
         <CardContent>
-          <Typography className={classes.title} color="primary" gutterBottom>
-            <Link href={issue.url} color="textSecondary">
+          <Typography className={title} color="primary" gutterBottom>
+            <Link className={title} href={issue.url} color="textSecondary">
               {issue.title}
             </Link>
           </Typography>
@@ -38,9 +38,12 @@ function IssueDescription(props: any) {
               small={true}
             />
           ))}
-          <Typography variant="body2" component="p">
-            {issue.body}
-          </Typography>
+          <div
+            className={injectedIssueBodyHtml}
+            dangerouslySetInnerHTML={{
+              __html: issue.bodyHTML,
+            }}
+          ></div>
         </CardContent>
         <CardActions>
           <Button size="medium">I'll Do It!</Button>
